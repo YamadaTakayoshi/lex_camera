@@ -1,0 +1,24 @@
+import cv2
+
+import pyOptris as optris
+
+DEFAULT_LINUX_PATH="/usr/lib/libirdirectsdk.so"
+optris.load_DLL(dll_path=DEFAULT_LINUX_PATH)
+
+# USB connection initialisation 
+optris.usb_init("config_file.xml")
+
+optris.set_palette(9)
+
+w, h = optris.get_palette_image_size()
+print("{} x {}".format(w, h))
+
+while True:
+    # Get the palette image (RGB image)
+    frame = optris.get_palette_image(w, h)
+    cv2.imshow("IR streaming", frame)
+    if cv2.waitKey(1) & 0xFF == ord("q"):
+        break
+
+optris.terminate()
+cv2.destroyAllWindows()

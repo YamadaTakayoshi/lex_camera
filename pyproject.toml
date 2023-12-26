@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "lex-camera"
+version = "0.1.0"
+description = ""
+authors = ["YamadaTakayoshi <t.yamada@mountain-gorilla.co.jp>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyoptris = {git = "https://github.com/FiloCara/pyOptris.git"}
+opencv-python = "^4.8.1.78"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
