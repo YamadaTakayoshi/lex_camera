@@ -1,14 +1,16 @@
 import cv2
 
 import pyOptris as optris
+from pyOptris import ColouringPalette
+
 
 DEFAULT_LINUX_PATH="/usr/lib/libirdirectsdk.so"
 optris.load_DLL(dll_path=DEFAULT_LINUX_PATH)
 
 # USB connection initialisation 
-optris.usb_init("config_file.xml")
+optris.usb_init("22014241.xml")
 
-optris.set_palette(9)
+optris.set_palette(ColouringPalette.RAINBOW)
 
 w, h = optris.get_palette_image_size()
 print("{} x {}".format(w, h))
